@@ -8,9 +8,9 @@ postRoute.get("/", auth, async (req, res) => {
   const { device } = req.query;
   console.log(device);
   try {
-    const posts = await PostModel.find({ userID: req.body.userID, device });
-    res.status(200).send(posts);
     if (device) {
+      const posts = await PostModel.find({ userID: req.body.userID, device });
+      res.status(200).send(posts);
     } else {
       const posts = await PostModel.find({ userID: req.body.userID });
       res.status(200).send(posts);
