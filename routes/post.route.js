@@ -6,7 +6,6 @@ const postRoute = Router();
 
 postRoute.get("/", auth, async (req, res) => {
   const { device } = req.query;
-  console.log(device);
   try {
     if (device) {
       const posts = await PostModel.find({ userID: req.body.userID, device });
